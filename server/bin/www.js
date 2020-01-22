@@ -3,7 +3,7 @@
 const http = require('http');
 const createDB = require('../models').default;
 const createApp = require('../server').default;
-
+const initCron = require('../jobs').default;
 
 const port = process.env.PORT || 3000;
 
@@ -34,6 +34,9 @@ function onError(error) {
 async function start() {
   const db = await createDB();
   const app = createApp({ db });
+
+  await initCron();
+
 
   const server = http.createServer();
 
