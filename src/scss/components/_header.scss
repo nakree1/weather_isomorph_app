@@ -1,0 +1,23 @@
+.header {
+  //display: flex;
+  //align-items: center;
+  background-color: $neutral_95;
+  color: $neutral_5;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    font-size: $text-l;
+
+    .title {
+      line-height: 2rem;
+      font-size: 1.5rem;
+    }
+
+    .icon {
+      margin-right: 1rem;
+
+      font-size: 2rem;
+    }
+  }
+}
