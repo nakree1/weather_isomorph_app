@@ -23,7 +23,7 @@ function authorizeAfterHydration(store) {
   const isAuth = authSelectors.isAuth(store.getState());
 
   if (!isAuth) {
-    store.dispatch(pushLogin)
+    store.dispatch(pushLogin())
   }
 }
 
