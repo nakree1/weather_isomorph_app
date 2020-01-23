@@ -8,10 +8,14 @@ import { createStoreWithSaga } from './config/store';
 import App from './components/App';
 
 import './scss/index.scss';
+import { pushLogin } from './modules/auth/authActions';
 
 
 const { api } = createApiService();
+
 const store = createStoreWithSaga({ api });
+
+store.dispatch(pushLogin());
 
 const root = document.getElementById('root');
 

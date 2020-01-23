@@ -16,6 +16,5 @@ export default function App() {
         <Route render={() => <div>Not Found</div>} />
       </Switch>
     </Wrapper>
-
   )
 }

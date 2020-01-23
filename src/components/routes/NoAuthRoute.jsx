@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-// import AuthGuard from '../../HOC/AuthGuard';
+import NoAuthGuard from '../HOC/NoAuthGuard';
 
-export default Route;
+export default NoAuthGuard(Route);

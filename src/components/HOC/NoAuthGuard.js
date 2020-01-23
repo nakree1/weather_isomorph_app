@@ -8,11 +8,11 @@ import { authSelectors } from '../../modules/auth/authSelectors';
 import { REQUEST } from '../../config/constants';
 
 export default function(OriginalComponent) {
-  const AuthGuardHOC = (props) => {
+  const NoAuthGuardHOC = (props) => {
     const isAuth = useSelector(authSelectors.isAuth);
     const status = useSelector(authSelectors.getStatus);
 
-    if (isAuth) {
+    if (!isAuth) {
       return <OriginalComponent {...props} />;
     }
 
@@ -22,8 +22,8 @@ export default function(OriginalComponent) {
       );
     }
 
-    return <Redirect to={routing().login} />;
+    return <Redirect to={routing().weather} />;
   };
 
-  return AuthGuardHOC;
+  return NoAuthGuardHOC;
 }

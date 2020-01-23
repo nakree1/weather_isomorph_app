@@ -1,11 +1,9 @@
 import { all, fork } from 'redux-saga/effects';
 
-// import { signupWatcher } from './modules/auth/authWorkers';
-// import { settingsWatcher } from './modules/settings/settingsWorkers';
+import { authWatcher } from './modules/auth/authWorkers';
 
 export default function* rootSaga() {
   yield all([
-    // fork(signupWatcher),
-    // fork(settingsWatcher)
+    fork(authWatcher),
   ]);
 }
