@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+require('../config/babel');
+
 const http = require('http');
 const createDB = require('../models').default;
 const createApp = require('../server').default;

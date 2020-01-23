@@ -3,7 +3,7 @@ import { put, call, takeLatest, all, getContext } from 'redux-saga/effects';
 import { pushLogin } from './authActions';
 
 
-function* loginWorker() {
+export function* loginWorker() {
   try {
     yield put(pushLogin.request());
 
@@ -16,6 +16,7 @@ function* loginWorker() {
     yield put(pushLogin.failure());
   }
 }
+
 
 export function* authWatcher() {
   yield all([

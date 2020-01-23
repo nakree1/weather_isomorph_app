@@ -1,4 +1,5 @@
 import express from 'express';
+import path from 'path';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cookieSession from 'cookie-session';
@@ -17,6 +18,13 @@ export default function createApp({ db }) {
   }))
 
   configureAuth(app);
+  console.log(path.resolve(__dirname, "..", "build"))
+  app.use(
+    express.static(path.resolve(__dirname, "..", "build"), {
+      maxAge: "10d",
+      index: false
+    })
+  );
   app.use((req, res, next) => {
     req.base = `${req.protocol}://${req.get('host')}`;
     // req.logger = logger;

@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import passport from 'passport';
+import routing from '../../../../../src/config/routing';
 
 
 export default Router()
@@ -17,6 +18,6 @@ export default Router()
         // .cookie('mock_jwt', 'success', {
         //   httpOnly: true
         // })
-        .redirect('/success');
+        .redirect(routing().weather);
     }
   )

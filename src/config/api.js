@@ -3,7 +3,7 @@ import axios from 'axios';
 function createApiRouting(client) {
   return ({
     auth: {
-      getUserData: (data) => client.post('/api/settings/select-locations', data),
+      getUserData: () => client.get('/api/auth/user'),
     },
     weather: {}
   })

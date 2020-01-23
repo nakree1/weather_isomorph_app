@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import isAuthenticated from '../../../middlewares/isAuthenticated';
 import google from './google';
 
 export default Router()
@@ -7,3 +8,6 @@ export default Router()
     req.logout();
     res.end();
   })
+  .get('/user', isAuthenticated, (req, res) => {
+    res.send(req.user);
+  });
