@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
 import { auth } from './modules/auth/authReducer';
+import { weather } from './modules/weather/weatherReducer';
 import { pushLogout } from './modules/auth/authActions';
 
 const appReducer = combineReducers({
   auth,
-  // settings
+  weather
 });
 
 export default (state, action) => {

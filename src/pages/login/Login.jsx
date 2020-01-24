@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Row,  Button } from 'antd';
-import PageTitle from '../components/shared/PageTitile';
+import PageTitle from '../../components/shared/PageTitile';
 
 export default function Login() {
   return (

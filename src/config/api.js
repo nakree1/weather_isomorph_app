@@ -6,7 +6,12 @@ function createApiRouting(client) {
       getUserData: () => client.get('/api/auth/user'),
       logout: () => client.post('/api/auth/logout')
     },
-    weather: {}
+    weather: {
+      lastDay: (cityId) => client.get(`/api/weather/${cityId}/lastDay`)
+    },
+    city: {
+      getList: () => client.get('/api/city/list')
+    }
   })
 };
 
