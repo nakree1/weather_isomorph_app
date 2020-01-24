@@ -22,7 +22,6 @@ export function* loginWorker() {
 
     yield put(pushLogin.success(profile));
   } catch (err) {
-    console.error(err);
     yield put(pushLogin.failure());
   }
 }

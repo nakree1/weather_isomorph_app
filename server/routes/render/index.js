@@ -13,4 +13,5 @@ export default Router()
   .use(createStoreMiddleware)
   .use(renderMiddleware)
   .get(routing().weather, weatherPage)
+  .get(routing().root, weatherPage)
   .get('*', anyPage);
