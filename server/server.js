@@ -13,7 +13,7 @@ export default function createApp({ db }) {
   app.use(bodyParser.json());
   app.use(cookieParser());
   app.use(cookieSession({
-    maxAge: 60 * 1000 * 10, // 10 minutes,
+    maxAge: 60 * 1000 * 10 * 12, // 10 * 12 minutes,
     keys: ['randomkey']
   }))
 

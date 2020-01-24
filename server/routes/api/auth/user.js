@@ -1,4 +1,3 @@
 export default (req, res) => {
-  req.logout();
-  res.end();
+  res.send(req.user);
 }

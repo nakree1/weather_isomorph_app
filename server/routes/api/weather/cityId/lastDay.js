@@ -1,16 +1,18 @@
-import City from '../../../../models/city.model';
 import Weather from '../../../../models/weather.model';
+import { startOfDay, endOfDay } from 'date-fns';
 
 export default async (req, res) => {
   const { cityId } = req.params;
 
-  console.log(cityId, req.params)
+  const now = new Date();
 
-  const weather = await Weather.find({ city: cityId });
+  const start = startOfDay(now);
+  const end = endOfDay(now);
 
-  // const currentCity = await City.findById(cityId).populate('weather');
-  // console.log(currentCity)
-  // const { weather } = currentCity;
-  //
-  res.send({ weather });
-}
+  const weather = await Weather.find({
+    city: cityId,
+    date: { $gte: start, $lte: end }
+  }).sort({ date: 'asc' });
+
+  res.send(weather.map((data) => data.toObject()));
+};

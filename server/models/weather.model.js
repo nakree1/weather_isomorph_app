@@ -20,5 +20,14 @@ const WeatherSchema = new Schema({
   }
 });
 
+if (!WeatherSchema.options.toObject) WeatherSchema.options.toObject = {};
+WeatherSchema.options.toObject.transform = function (doc, ret, ) {
+  return {
+    id: ret._id,
+    cityId: ret.city,
+    temp: ret.temperature,
+    date: ret.date,
+  }
+}
 
 module.exports = mongoose.model('Weather', WeatherSchema);

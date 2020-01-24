@@ -14,5 +14,10 @@ const CitySchema = new Schema({
   ]
 });
 
+if (!CitySchema.options.toObject) CitySchema.options.toObject = {};
+CitySchema.options.toObject.transform = function (doc, ret, ) {
+  return { name: ret.name, id: ret._id }
+}
+
 
 module.exports = mongoose.model('City', CitySchema);

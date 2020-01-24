@@ -7,7 +7,7 @@ export default async function() {
   const cities = await City.find();
 
   cities.forEach(city => {
-    cron.schedule('5 * * * * *', async () => {
+    cron.schedule('0 * * * * *', async () => {
       const now = new Date();
       now.setSeconds(0);
       now.setMilliseconds(0);
@@ -20,7 +20,6 @@ export default async function() {
       }
 
       await Weather.create(data);
-      console.log('Created Weather', data)
     })
   })
 }
