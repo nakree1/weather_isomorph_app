@@ -11,7 +11,7 @@ export default function Chart({ data }) {
             top: 10, right: 30, left: 0, bottom: 0,
           }}
         >
-          <CartesianGrid strokeDasharray="3 3" />
+          {/*<CartesianGrid strokeDasharray="3 3" />*/}
           <XAxis dataKey="date" />
           <YAxis />
           <Tooltip />

@@ -12,9 +12,6 @@ export default Router()
       ]
     })
   )
-  .get(
-    '/callback',
-    passport.authenticate('google', (req, res) => {
-      return res.redirect(301, routing().weather)
-    })
-  );
+  .get('/callback', passport.authenticate('google'), (req, res) => {
+    res.redirect(301, routing().weather);
+  });

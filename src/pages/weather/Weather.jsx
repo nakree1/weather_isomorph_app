@@ -5,7 +5,7 @@ import ChartContainer from './ChartContainer';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearAll, fetchWeather } from '../../modules/weather/weatherActions';
 import { weatherSelectors } from '../../modules/weather/weatherSelectors';
-import { REQUEST } from '../../config/constants';
+import { REQUEST, SUCCESS } from '../../config/constants';
 import { Spin } from 'antd';
 
 export default function Weather() {
@@ -14,7 +14,12 @@ export default function Weather() {
   const citiesIdList = useSelector(weatherSelectors.getCitiesIdList);
 
   useEffect(() => {
-    dispatch(fetchWeather());
+    if (status !== SUCCESS) {
+      dispatch(fetchWeather());
+    }
+  }, [status]);
+
+  useEffect(() => {
     return () => {
       dispatch(clearAll());
     };
@@ -24,12 +29,12 @@ export default function Weather() {
     return (
       <>
         <PageTitle>Weather</PageTitle>
-        <Spin size="large"/>
+        <Spin size="large" />
       </>
     );
   }
 
-  const cities = citiesIdList.map(cityId => <ChartContainer key={cityId} cityId={cityId}/>)
+  const cities = citiesIdList.map((cityId) => <ChartContainer key={cityId} cityId={cityId} />);
 
   return (
     <>

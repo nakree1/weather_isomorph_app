@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Col, Row, Spin, Typography } from 'antd';
+import { Button, Col, Row, Typography } from 'antd';
 
 const { Title } = Typography;
 

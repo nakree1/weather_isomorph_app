@@ -3,7 +3,7 @@ import { put, call, takeLatest, all, getContext } from 'redux-saga/effects';
 import { fetchAll, fetchWeather, fetchWeatherByCity } from './weatherActions';
 import { normalizePoints } from './helpers/normalizePoints';
 
-function* weatherWorker() {
+export function* weatherWorker() {
   try {
     yield put(fetchWeather.request());
     const api = yield getContext('api');
