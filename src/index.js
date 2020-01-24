@@ -9,7 +9,6 @@ import App from './components/App';
 
 import './scss/index.scss';
 
-
 const { api } = createApiService();
 
 const store = createStoreWithSaga({ api });

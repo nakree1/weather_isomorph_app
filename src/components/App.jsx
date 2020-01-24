@@ -5,15 +5,18 @@ import Wrapper from './wrappers/Wrapper';
 import AuthRoute from './routes/AuthRoute';
 import NoAuthRoute from './routes/NoAuthRoute';
 import routing from '../config/routing';
+import Login from '../pages/Login';
+import NotFound from '../pages/NotFound';
 
 
 export default function App() {
   return (
     <Wrapper>
       <Switch>
-        <NoAuthRoute exact path={routing().login} render={() => <a href="http://localhost:3010/api/auth/google">Sign In with Google</a>} />
+        <NoAuthRoute exact path={routing().login} component={Login} />
         <AuthRoute exact path={routing().weather} render={() => <div>Weather data</div>} />
-        <Route render={() => <div>Not Found</div>} />
+        <AuthRoute exact path={routing().root} render={() => <div>Weather data</div>} />
+        <Route component={NotFound} />
       </Switch>
     </Wrapper>
   )

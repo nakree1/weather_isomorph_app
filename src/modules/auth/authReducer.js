@@ -16,7 +16,15 @@ const isAuth = handleActions(
 const profile = handleActions(
   {
     [actions.pushLogin.SUCCESS](state, { payload }) {
-      return payload;
+      const { displayName, emails, photos } = payload;
+
+      const profile = {
+        fullName: displayName,
+        email: emails[0] && emails[0].value,
+        avatar: photos[0] && photos[0].value
+      }
+
+      return profile;
     }
   },
   null

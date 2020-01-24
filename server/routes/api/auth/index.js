@@ -4,7 +4,7 @@ import google from './google';
 
 export default Router()
   .use('/google', google)
-  .get('/logout', (req, res) => {
+  .post('/logout', (req, res) => {
     req.logout();
     res.end();
   })

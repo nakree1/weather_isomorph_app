@@ -1,6 +1,17 @@
 import { put, call, takeLatest, all, getContext } from 'redux-saga/effects';
 
-import { pushLogin } from './authActions';
+import { pushLogin, pushLogout } from './authActions';
+
+function* logoutWorker() {
+  try {
+    const api = yield getContext('api');
+    yield call(api.auth.logout);
+  } catch (err) {
+    console.error(err);
+  } finally {
+    yield put(pushLogout.success())
+  }
+}
 
 
 export function* loginWorker() {
@@ -20,6 +31,7 @@ export function* loginWorker() {
 
 export function* authWatcher() {
   yield all([
-    takeLatest(pushLogin.TRIGGER, loginWorker)
+    takeLatest(pushLogin.TRIGGER, loginWorker),
+    takeLatest(pushLogout.TRIGGER, logoutWorker),
   ]);
 }

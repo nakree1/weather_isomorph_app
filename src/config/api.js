@@ -4,6 +4,7 @@ function createApiRouting(client) {
   return ({
     auth: {
       getUserData: () => client.get('/api/auth/user'),
+      logout: () => client.post('/api/auth/logout')
     },
     weather: {}
   })
@@ -12,6 +13,8 @@ function createApiRouting(client) {
 
 export function createApiService(config) {
   const instance = axios.create(config);
+
+  instance.interceptors.response.use((res) => res.data);
 
   return {
     axios: instance,
