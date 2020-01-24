@@ -8,7 +8,7 @@ export function normalizePoints(points) {
       obj[cityId] = [];
     }
 
-    obj[cityId].push({ id, temp, date: new Date(date) });
+    obj[cityId].push({ id, temp, date: Number(new Date(date)) });
   });
 
   return obj;

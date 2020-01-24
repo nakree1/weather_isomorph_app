@@ -7,7 +7,7 @@ export default function ChartHeader({ title, isFetching, temperature, handleRefr
   return (
     <Row gutter={[16, 48]}>
       <Col span={12} >
-        <Title level={4}>{title}, {temperature} C</Title>
+        <Title level={4}>{title}, {temperature}℃</Title>
       </Col>
       <Col span={3} offset={9}>
         <Button type="primary" onClick={handleRefresh} disabled={isFetching}>

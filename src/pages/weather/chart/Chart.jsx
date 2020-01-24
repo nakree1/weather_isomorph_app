@@ -1,9 +1,25 @@
-import React from 'react';
-import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import React, { useCallback } from 'react';
+import { startOfDay, endOfDay, format } from 'date-fns';
+import { Area, AreaChart,ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+
+import CustomTooltip from './CustomTooltip';
+
+const now = new Date();
 
 export default function Chart({ data }) {
+  const domain = [
+    Number(startOfDay(now)),
+    Number(endOfDay(now))
+  ];
+
+  const formatTick = useCallback((tick) => {
+    const date = new Date(tick);
+
+    return format(date, 'HH:mm')
+  }, [])
+
   return (
-    <div style={{ width: '100%', height: 300 }}>
+    <div className="weather-chart">
       <ResponsiveContainer>
         <AreaChart
           data={data}
@@ -11,11 +27,17 @@ export default function Chart({ data }) {
             top: 10, right: 30, left: 0, bottom: 0,
           }}
         >
-          {/*<CartesianGrid strokeDasharray="3 3" />*/}
-          <XAxis dataKey="date" />
+          <XAxis
+            type="number"
+            dataKey="date"
+            domain={domain}
+            tickCount={24}
+            interval={2}
+            tickFormatter={formatTick}
+          />
           <YAxis />
-          <Tooltip />
-          <Area type="monotone" dataKey="temp" stroke="#8884d8" fill="#8884d8" />
+          <Tooltip content={<CustomTooltip/>}/>
+          <Area isAnimationActive={false} type="monotone" dataKey="temp" stroke="#8884d8" fill="#8884d8" />
         </AreaChart>
       </ResponsiveContainer>
     </div>
