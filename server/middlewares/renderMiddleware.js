@@ -9,7 +9,7 @@ import App from '../../src/components/App';
 
 const htmlPath = path.resolve(__dirname, '..', '..', 'build', 'index.html');
 
-const html = fs.readFileSync(htmlPath, { encoding: 'UTF-8'});
+const html = fs.readFileSync(htmlPath, { encoding: 'UTF-8' });
 
 export default (req, res, next) => {
   res.render = render.bind(this, req, res);
@@ -18,7 +18,6 @@ export default (req, res, next) => {
 
 function render(req, res) {
   const routerContext = {};
-
 
   const Application = (
     <Provider store={res.store}>
@@ -29,15 +28,13 @@ function render(req, res) {
   );
 
   const updatedState = res.store.getState();
-  console.log('state', updatedState)
+  console.log('state', updatedState);
   const jsonState = encodeURIComponent(JSON.stringify(updatedState));
-
-
 
   const jsx = ReactDOMServer.renderToString(Application);
 
   if (routerContext.url) {
-    console.log('REDIRECT')
+    console.log('REDIRECT');
     res.redirect(301, routerContext.url);
   }
 

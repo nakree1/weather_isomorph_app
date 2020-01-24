@@ -18,7 +18,6 @@ export default function createApp({ db }) {
   }))
 
   configureAuth(app);
-  console.log(path.resolve(__dirname, "..", "build"))
   app.use(
     express.static(path.resolve(__dirname, "..", "build"), {
       maxAge: "10d",

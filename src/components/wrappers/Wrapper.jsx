@@ -6,17 +6,17 @@ import { Layout, Row, Col } from 'antd';
 export default function Wrapper({ children }) {
   return (
     <Layout>
-      <Header/>
+      <Header />
       <Layout.Content>
         <Row>
           <Col span={12} offset={6}>
-            <section className="content">
-              {children}
-            </section>
+            <section className="content">{children}</section>
           </Col>
         </Row>
       </Layout.Content>
-      <Layout.Footer className="text-center">Weather App ©2020 Created by Max Melnychuk</Layout.Footer>
+      <Layout.Footer className="text-center">
+        Weather App ©2020 Created by Max Melnychuk
+      </Layout.Footer>
     </Layout>
-  )
+  );
 }

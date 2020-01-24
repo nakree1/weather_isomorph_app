@@ -10,7 +10,6 @@ import Login from '../pages/login/Login';
 import NotFound from '../pages/NotFound';
 import Weather from '../pages/weather/Weather';
 
-
 export default function App() {
   return (
     <Wrapper>
@@ -21,5 +20,5 @@ export default function App() {
         <Route component={NotFound} />
       </Switch>
     </Wrapper>
-  )
+  );
 }

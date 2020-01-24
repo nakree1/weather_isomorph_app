@@ -29,12 +29,12 @@ export default function Profile() {
 
   return (
     <div className="profile">
-      <Avatar className="profile__avatar" src={avatar}/>
+      <Avatar className="profile__avatar" src={avatar} />
       <div className="profile__info">
         <Dropdown overlay={menu}>
           <p className="name">
             {fullName}
-            <Icon type="down" className="drop-icon"/>
+            <Icon type="down" className="drop-icon" />
           </p>
         </Dropdown>
 

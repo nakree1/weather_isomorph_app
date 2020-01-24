@@ -8,5 +8,5 @@ export default function PageTitle({ children }) {
         <Typography.Title level={3}>{children}</Typography.Title>
       </Col>
     </Row>
-  )
+  );
 }

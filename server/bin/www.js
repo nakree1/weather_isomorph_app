@@ -2,21 +2,19 @@
 
 require('../config/babel');
 
+const { PORT } = require('../config');
 const http = require('http');
 const createDB = require('../models').default;
 const createApp = require('../server').default;
 const initCron = require('../jobs').default;
 
-const port = process.env.PORT || 3000;
 
 function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
   }
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  const bind = typeof PORT === 'string' ? 'Pipe ' + PORT : 'Port ' + PORT;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -39,14 +37,14 @@ async function start() {
 
   await initCron();
 
-
   const server = http.createServer();
 
   server
     .on('request', app)
     .on('error', onError)
-    .listen(port, () => {
-      console.log(`API running on port ${port}`);
+    .listen(PORT, () => {
+      console.log(process.env);
+      console.log(`API running on port ${PORT}`);
     });
 }
 

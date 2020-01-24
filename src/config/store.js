@@ -11,7 +11,7 @@ function hydrateStore() {
   if (window.__PRELOADED_STATE__) {
     const decodedState = decodeURIComponent(window.__PRELOADED_STATE__);
 
-    console.log(JSON.parse(decodedState))
+    console.log(JSON.parse(decodedState));
 
     return JSON.parse(decodedState);
   }
@@ -23,13 +23,17 @@ function authorizeAfterHydration(store) {
   const isAuth = authSelectors.isAuth(store.getState());
 
   if (!isAuth) {
-    store.dispatch(pushLogin())
+    store.dispatch(pushLogin());
   }
 }
 
 export function createStoreWithSaga(context) {
   const sagaMiddleware = createSagaMiddleware({ context });
-  const store = createStore(rootReducer, hydrateStore(), composeWithDevTools(applyMiddleware(sagaMiddleware)));
+  const store = createStore(
+    rootReducer,
+    hydrateStore(),
+    composeWithDevTools(applyMiddleware(sagaMiddleware))
+  );
   sagaMiddleware.run(rootSaga);
 
   authorizeAfterHydration(store);

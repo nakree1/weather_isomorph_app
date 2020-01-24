@@ -1,7 +1,7 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 import { DB_NAME, DB_HOSTNAME, DB_PASSWORD, DB_PORT, DB_USERNAME } from '../config';
 
-const dbUrl = `mongodb://${DB_HOSTNAME}:${DB_PORT}`
+const dbUrl = `mongodb://${DB_HOSTNAME}:${DB_PORT}`;
 
 const config = {
   dbName: DB_NAME,
@@ -11,10 +11,9 @@ const config = {
   useUnifiedTopology: true
 };
 
-
 export default async function createDB() {
   try {
-    console.log(dbUrl, config)
+    console.log(dbUrl, config);
     const db = await mongoose.connect(dbUrl, config);
     return db;
   } catch (e) {

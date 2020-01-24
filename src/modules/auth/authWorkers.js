@@ -9,10 +9,9 @@ function* logoutWorker() {
   } catch (err) {
     console.error(err);
   } finally {
-    yield put(pushLogout.success())
+    yield put(pushLogout.success());
   }
 }
-
 
 export function* loginWorker() {
   try {
@@ -28,10 +27,9 @@ export function* loginWorker() {
   }
 }
 
-
 export function* authWatcher() {
   yield all([
     takeLatest(pushLogin.TRIGGER, loginWorker),
-    takeLatest(pushLogout.TRIGGER, logoutWorker),
+    takeLatest(pushLogout.TRIGGER, logoutWorker)
   ]);
 }

@@ -18,15 +18,13 @@ const root = document.getElementById('root');
 const Application = (
   <Provider store={store}>
     <BrowserRouter>
-      <App/>
+      <App />
     </BrowserRouter>
   </Provider>
-)
-
+);
 
 if (root.hasChildNodes() === true) {
   ReactDOM.hydrate(Application, root);
 } else {
   ReactDOM.render(Application, root);
 }
-

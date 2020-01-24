@@ -8,11 +8,11 @@ const WeatherSchema = new Schema({
   },
   date: {
     type: Date,
-    required: true,
+    required: true
   },
   temperature: {
     type: Number,
-    required: true,
+    required: true
   },
   scale: {
     type: String,
@@ -21,13 +21,13 @@ const WeatherSchema = new Schema({
 });
 
 if (!WeatherSchema.options.toObject) WeatherSchema.options.toObject = {};
-WeatherSchema.options.toObject.transform = function (doc, ret, ) {
+WeatherSchema.options.toObject.transform = function(doc, ret) {
   return {
     id: ret._id,
     cityId: ret.city,
     temp: ret.temperature,
-    date: ret.date,
-  }
-}
+    date: ret.date
+  };
+};
 
 module.exports = mongoose.model('Weather', WeatherSchema);

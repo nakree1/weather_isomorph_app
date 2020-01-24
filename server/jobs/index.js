@@ -6,7 +6,7 @@ import Weather from '../models/weather.model';
 export default async function() {
   const cities = await City.find();
 
-  cities.forEach(city => {
+  cities.forEach((city) => {
     cron.schedule('0 * * * * *', async () => {
       const now = new Date();
       now.setSeconds(0);
@@ -17,9 +17,9 @@ export default async function() {
         temperature: Math.round(Math.random() * 10),
         scale: 'celsius',
         date: now
-      }
+      };
 
       await Weather.create(data);
-    })
-  })
+    });
+  });
 }

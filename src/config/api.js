@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 function createApiRouting(client) {
-  return ({
+  return {
     auth: {
       getUserData: () => client.get('/api/auth/user'),
       logout: () => client.post('/api/auth/logout')
@@ -12,9 +12,8 @@ function createApiRouting(client) {
     city: {
       getList: () => client.get('/api/city/list')
     }
-  })
-};
-
+  };
+}
 
 export function createApiService(config) {
   const instance = axios.create(config);
@@ -24,5 +23,5 @@ export function createApiService(config) {
   return {
     axios: instance,
     api: createApiRouting(instance)
-  }
+  };
 }

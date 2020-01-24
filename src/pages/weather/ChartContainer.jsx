@@ -14,14 +14,18 @@ export default function ChartContainer({ cityId }) {
 
   const handleRefresh = useCallback(() => {
     return dispatch(fetchWeatherByCity(cityId));
-  }, [cityId])
-
+  }, [cityId]);
 
   const lastTemperature = points[points.length - 1].temp;
 
   return (
     <>
-      <ChartHeader title={city.name} isFetching={city.isFetching} temperature={lastTemperature} handleRefresh={handleRefresh}/>
+      <ChartHeader
+        title={city.name}
+        isFetching={city.isFetching}
+        temperature={lastTemperature}
+        handleRefresh={handleRefresh}
+      />
       <Row>
         <Col span={24}>
           <Chart data={points} />

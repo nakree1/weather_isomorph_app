@@ -1,5 +1,7 @@
 import { config } from 'dotenv';
+
 config();
+const PORT = Number(process.env.PORT) || 3000;
 
 const APP_HOSTNAME = process.env.APP_HOSTNAME;
 
@@ -13,13 +15,13 @@ const DB_USERNAME = process.env.DB_USERNAME;
 const DB_PASSWORD = process.env.DB_PASSWORD;
 
 export {
+  PORT,
   APP_HOSTNAME,
   GOOGLE_CLIENT_ID,
   GOOGLE_CLIENT_SECRET,
-
   DB_NAME,
   DB_HOSTNAME,
   DB_PORT,
   DB_USERNAME,
-  DB_PASSWORD,
+  DB_PASSWORD
 };

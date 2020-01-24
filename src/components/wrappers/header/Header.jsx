@@ -15,7 +15,7 @@ export default function Header() {
           </Link>
         </Col>
         <Col span={4} offset={14}>
-          <Profile/>
+          <Profile />
         </Col>
       </Row>
     </Layout.Header>

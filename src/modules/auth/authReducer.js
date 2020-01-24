@@ -22,7 +22,7 @@ const profile = handleActions(
         fullName: displayName,
         email: emails[0] && emails[0].value,
         avatar: photos[0] && photos[0].value
-      }
+      };
 
       return profile;
     }
@@ -35,5 +35,5 @@ const status = makeStatusReducer(actions.pushLogin);
 export const auth = combineReducers({
   isAuth,
   status,
-  profile,
+  profile
 });

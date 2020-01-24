@@ -17,9 +17,7 @@ export default function(OriginalComponent) {
     }
 
     if (status === REQUEST) {
-      return (
-        <Spin size="large"/>
-      );
+      return <Spin size="large" />;
     }
 
     return <Redirect to={routing().weather} />;

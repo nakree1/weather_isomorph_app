@@ -11,12 +11,14 @@ export function configureAuth(app) {
     callbackURL: `${APP_HOSTNAME}/api/auth/google/callback`
   };
 
-  app.use(passport.initialize())
-  app.use(passport.session())
+  app.use(passport.initialize());
+  app.use(passport.session());
 
-  passport.use(new GoogleStrategy(strategyOptions, async (accessToken, refreshToken, profile, done) => {
-    done(null, profile); // passes the profile data to serializeUser
-  }));
+  passport.use(
+    new GoogleStrategy(strategyOptions, async (accessToken, refreshToken, profile, done) => {
+      done(null, profile); // passes the profile data to serializeUser
+    })
+  );
 
   passport.serializeUser((user, done) => {
     done(null, user);

@@ -1,21 +1,21 @@
-const register = require("ignore-styles").default;
-const path = require("path");
-const fs = require("fs");
-const mimeTypes = require("mime-types");
-const md5File = require("md5-file");
+const register = require('ignore-styles').default;
+const path = require('path');
+const fs = require('fs');
+const mimeTypes = require('mime-types');
+const md5File = require('md5-file');
 
-require("@babel/register")({
+require('@babel/register')({
   ignore: [/\/(build|node_modules)\//],
-  presets: ["@babel/preset-env", "@babel/preset-react"],
+  presets: ['@babel/preset-env', '@babel/preset-react']
 });
 
 register(undefined, (mod, filename) => {
-  const ext = [".png", ".jpg", ".jpeg", ".svg"].find(f => filename.endsWith(f));
+  const ext = ['.png', '.jpg', '.jpeg', '.svg'].find((f) => filename.endsWith(f));
   if (!ext) return;
 
   if (fs.statSync(filename).size < 10000) {
-    const file = fs.readFileSync(filename).toString("base64");
-    const mimeType = mimeTypes.lookup(ext) || "image/jpg";
+    const file = fs.readFileSync(filename).toString('base64');
+    const mimeType = mimeTypes.lookup(ext) || 'image/jpg';
     mod.exports = `data:${mimeType};base64,${file}`;
   } else {
     const hash = md5File.sync(filename).slice(0, 8);
