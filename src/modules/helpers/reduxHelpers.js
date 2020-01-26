@@ -1,4 +1,5 @@
 import { handleActions } from 'redux-actions';
+
 import { FAILURE, NONE, REQUEST, SUCCESS } from '../../config/constants';
 
 export function makeStatusReducer(action) {

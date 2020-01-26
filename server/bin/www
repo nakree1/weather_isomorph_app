@@ -42,7 +42,7 @@ async function start() {
     .on('request', app)
     .on('error', onError)
     .listen(PORT, () => {
-      console.log(`API running on port ${PORT}`);
+      console.log(`Server running on port ${PORT}`);
     });
 }
 

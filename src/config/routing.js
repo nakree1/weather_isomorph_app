@@ -1,4 +1,4 @@
-export default function routing(params) {
+export default function routing() {
   return {
     root: '/',
 

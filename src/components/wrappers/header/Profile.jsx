@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { Avatar, Dropdown, Menu, Icon, Button } from 'antd';
+import { Avatar, Dropdown, Menu, Icon } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { authSelectors } from '../../../modules/auth/authSelectors';
 import { pushLogout } from '../../../modules/auth/authActions';
@@ -8,9 +8,10 @@ export default function Profile() {
   const isAuth = useSelector(authSelectors.isAuth);
   const profile = useSelector(authSelectors.getProfile);
   const dispatch = useDispatch();
+
   const handleLogout = useCallback(() => {
     dispatch(pushLogout());
-  }, []);
+  }, [dispatch]);
 
   if (!isAuth) {
     return null;

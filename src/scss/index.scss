@@ -9,9 +9,7 @@
 @import 'components/header';
 @import 'components/profile';
 @import 'components/chart';
-
-/* UI */
-@import 'ui/notifications';
+@import 'components/google-link';
 
 body {
   margin: 0;
@@ -23,5 +21,5 @@ body {
   background: white;
   margin: 1rem 0;
   padding: 1.25rem;
-  min-height: 280px;
+  min-height: calc(100vh - 64px);
 }

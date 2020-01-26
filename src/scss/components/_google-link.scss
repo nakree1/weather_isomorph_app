@@ -1,0 +1,17 @@
+.google-link {
+  display: flex;
+  justify-content: space-between;
+  min-width: 175px;
+  max-width: 200px;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background-color: $primary_75;
+  color: white;
+
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: darken($primary_75, 10%);
+    color: $neutral_5;
+  }
+}

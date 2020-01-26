@@ -14,7 +14,7 @@ export default function ChartContainer({ cityId }) {
 
   const handleRefresh = useCallback(() => {
     return dispatch(fetchWeatherByCity(cityId));
-  }, [cityId]);
+  }, [cityId, dispatch]);
 
   const lastTemperature = points[points.length - 1].temp;
 

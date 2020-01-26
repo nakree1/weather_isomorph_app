@@ -4,6 +4,7 @@ const fs = require('fs');
 const mimeTypes = require('mime-types');
 const md5File = require('md5-file');
 
+require('@babel/polyfill');
 require('@babel/register')({
   ignore: [/\/(build|node_modules)\//],
   presets: ['@babel/preset-env', '@babel/preset-react']

@@ -32,11 +32,9 @@
     "start-client": "react-scripts start",
     "build-client": "react-scripts build",
     "eject-client": "react-scripts eject",
-
     "start-server": "nodemon --config nodemon.config.json ./server/bin/www",
     "start-server-debug": "nodemon --config nodemon.config.json --inspect=0.0.0.0 ./server/bin/www ",
     "start": "react-scripts build && nodemon --config nodemon.config.prod.json ./server/bin/www",
-
     "prettier": "prettier --write src/**/*.{jsx,js,json,css,scss} server/**/*.js"
   },
   "eslintConfig": {
@@ -58,6 +56,7 @@
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
     "@babel/node": "^7.8.3",
+    "@babel/polyfill": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/register": "^7.8.3",
     "dotenv": "^8.2.0",

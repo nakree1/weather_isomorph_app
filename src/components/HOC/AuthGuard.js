@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { Spin } from 'antd';
+import { Col, Row, Spin } from 'antd';
 
 import routing from '../../config/routing';
 import { authSelectors } from '../../modules/auth/authSelectors';
@@ -17,7 +17,13 @@ export default function(OriginalComponent) {
     }
 
     if (status === REQUEST) {
-      return <Spin size="large" />;
+      return (
+        <Row type="flex" justify="center">
+          <Col span={1}>
+            <Spin size="large" />
+          </Col>
+        </Row>
+      );
     }
 
     return <Redirect to={routing().login} />;

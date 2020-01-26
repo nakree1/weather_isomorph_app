@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Spin, Row, Col } from 'antd';
 
 import PageTitle from '../../components/shared/PageTitile';
 import ChartContainer from './ChartContainer';
-import { useDispatch, useSelector } from 'react-redux';
+
 import { clearAll, fetchWeather } from '../../modules/weather/weatherActions';
 import { weatherSelectors } from '../../modules/weather/weatherSelectors';
 import { REQUEST, SUCCESS } from '../../config/constants';
-import { Spin } from 'antd';
 
 export default function Weather() {
   const dispatch = useDispatch();
@@ -17,19 +18,23 @@ export default function Weather() {
     if (status !== SUCCESS) {
       dispatch(fetchWeather());
     }
-  }, [status]);
+  }, [status, dispatch]);
 
   useEffect(() => {
     return () => {
       dispatch(clearAll());
     };
-  }, []);
+  }, [dispatch]);
 
   if (status === REQUEST) {
     return (
       <>
         <PageTitle>Weather</PageTitle>
-        <Spin size="large" />
+        <Row type="flex" justify="center">
+          <Col span={1}>
+            <Spin size="large" />
+          </Col>
+        </Row>
       </>
     );
   }

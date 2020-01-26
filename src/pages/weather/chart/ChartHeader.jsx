@@ -5,13 +5,13 @@ const { Title } = Typography;
 
 export default function ChartHeader({ title, isFetching, temperature, handleRefresh }) {
   return (
-    <Row gutter={[16, 48]}>
-      <Col span={12}>
+    <Row gutter={[16, 48]} type="flex" justify="space-between">
+      <Col span={8}>
         <Title level={4}>
           {title}, {temperature}℃
         </Title>
       </Col>
-      <Col span={3} offset={9}>
+      <Col span={5}>
         <Button type="primary" onClick={handleRefresh} disabled={isFetching}>
           {isFetching ? 'Loading' : 'Refresh'}
         </Button>

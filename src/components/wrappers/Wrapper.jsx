@@ -9,7 +9,7 @@ export default function Wrapper({ children }) {
       <Header />
       <Layout.Content>
         <Row>
-          <Col span={12} offset={6}>
+          <Col span={16} offset={4}>
             <section className="content">{children}</section>
           </Col>
         </Row>

@@ -41,8 +41,8 @@ export default function Chart({ data }) {
             isAnimationActive={false}
             type="monotone"
             dataKey="temp"
-            stroke="#8884d8"
-            fill="#8884d8"
+            stroke="#4188e4"
+            fill="#4188e4"
           />
         </AreaChart>
       </ResponsiveContainer>

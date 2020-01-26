@@ -1,6 +1,6 @@
 import { put, call, takeLatest, all, getContext } from 'redux-saga/effects';
 
-import { fetchAll, fetchWeather, fetchWeatherByCity } from './weatherActions';
+import { fetchWeather, fetchWeatherByCity } from './weatherActions';
 import { normalizePoints } from './helpers/normalizePoints';
 
 export function* weatherWorker() {

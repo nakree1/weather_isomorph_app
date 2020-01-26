@@ -1,5 +1,6 @@
 import React from 'react';
-import { Col, Row, Button } from 'antd';
+import { Col, Row, Icon } from 'antd';
+
 import PageTitle from '../../components/shared/PageTitile';
 
 export default function Login() {
@@ -7,15 +8,13 @@ export default function Login() {
     <>
       <PageTitle>Login</PageTitle>
       <Row gutter={[16, 48]}>
-        <Col className="text-center">
-          <Button type="primary" size="large" icon="google">
-            <a
-              href="http://localhost:3010/api/auth/google"
-              style={{ color: 'white', marginLeft: '1rem' }}
-            >
-              Sign In with Google
-            </a>
-          </Button>
+        <Col span={6} offset={9}>
+          <a href="/api/auth/google" className="google-link">
+            <span className="icon">
+              <Icon type="google" />
+            </span>
+            <span className="text">Sign In with Google</span>
+          </a>
         </Col>
       </Row>
     </>
