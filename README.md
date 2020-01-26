@@ -1,22 +1,34 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+## Requirements for the app
+:heavy_check_mark: It should generate mock temperature data every minute for each city and save it to MongoDB.
+
+:heavy_check_mark: It should have Google Authorization.
+
+:heavy_check_mark: After authorization, the application should show a chart with data from API for each city and profile info from Google account.
+
+:heavy_check_mark: It should have server-side render and client-side render (after hydration).
+
+:heavy_check_mark: It should use antd and recharts library.
+
 ## How to deploy
 
 ##### Using docker:
-1. Clone repo
-2. Open the project directory in the terminal
-3. Copy .env file to project directory or create using .env.example
-4. Run `sudo docker-compose up -d`
-5. Wait for application building (2-3min)
+1. Clone repo.
+2. Open the project directory in the terminal.
+3. Copy .env file to project directory or create using .env.example.
+4. Run `sudo docker-compose up -d`.
+5. Wait for application building (2-3min).
 6. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ##### Without docker:
-1. Clone repo
-2. Open the project directory in the terminal
-3. Copy .env file to the project directory or create one using .env.example
-4. Start your MongoDB (with user credentials from .env)
-5. Run `npm run install && npm run start`
-5. Wait for application building (2-3min)
+1. Clone repo.
+2. Open the project directory in the terminal.
+3. Copy .env file to the project directory or create one using .env.example.
+4. Start your MongoDB (with user credentials from .env).
+5. Run `npm run install && npm run start`.
+5. Wait for application building (2-3min).
 6. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
