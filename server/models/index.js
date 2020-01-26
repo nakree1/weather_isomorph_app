@@ -9,7 +9,10 @@ const config = {
   user: DB_USERNAME,
   pass: DB_PASSWORD,
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  reconnectTries: 15,
+  reconnectInterval: 500,
+  connectTimeoutMS: 10000,
 };
 
 export default async function createDB() {
