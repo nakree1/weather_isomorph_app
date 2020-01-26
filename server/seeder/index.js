@@ -13,7 +13,7 @@ async function generateTodayWeather({ cityId, cityName }) {
   const minutesCount = differenceInMinutes(now, start);
   const baseTemp = getRandomInt(5, 20);
 
-  console.log(`Creating ${minutesCount} weather points for ${cityName}...`);
+  console.log(`Generating ${minutesCount} weather points for ${cityName}...`);
 
   for (let i = 0; i <= minutesCount; i++) {
     const data = {
@@ -26,9 +26,8 @@ async function generateTodayWeather({ cityId, cityName }) {
     await Weather.create(data);
   }
 
-  console.log(`${cityName} completed.`)
+  console.log(`${cityName} completed.`);
 }
-
 
 export default async () => {
   const citiesCount = await City.countDocuments();
@@ -37,7 +36,7 @@ export default async () => {
     for (const name of names) {
       const city = await City.create({ name });
       console.log('Created new city:', name);
-      await generateTodayWeather({ cityId: city._id, cityName: city.name })
+      await generateTodayWeather({ cityId: city._id, cityName: city.name });
     }
   }
-}
+};

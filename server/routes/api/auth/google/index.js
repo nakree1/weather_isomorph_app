@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import passport from 'passport';
+
 import routing from '../../../../../src/config/routing';
 
 export default Router()

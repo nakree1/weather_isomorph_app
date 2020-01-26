@@ -6,16 +6,13 @@ const CitySchema = new Schema({
     type: String,
     required: true,
     max: 100
-  },
-  weather: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Weather'
-    }
-  ]
+  }
 });
 
-if (!CitySchema.options.toObject) CitySchema.options.toObject = {};
+if (!CitySchema.options.toObject) {
+  CitySchema.options.toObject = {};
+}
+
 CitySchema.options.toObject.transform = function(doc, ret) {
   return { name: ret.name, id: ret._id };
 };

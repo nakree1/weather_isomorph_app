@@ -1,5 +1,5 @@
 import cron from 'node-cron';
-import { differenceInMinutes, startOfDay } from 'date-fns'
+import { differenceInMinutes, startOfDay } from 'date-fns';
 
 import City from '../models/city.model';
 import Weather from '../models/weather.model';

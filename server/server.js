@@ -5,7 +5,8 @@ import cookieParser from 'cookie-parser';
 import cookieSession from 'cookie-session';
 
 import routes from './routes';
-import { configureAuth } from './config/auth';
+import configureAuth from './config/auth';
+import errorHandler from './middlewares/errorHandler';
 
 export default function createApp({ db }) {
   const app = express();
@@ -13,7 +14,7 @@ export default function createApp({ db }) {
   app.use(bodyParser.json());
   app.use(cookieParser());
   app.use(cookieSession({
-    maxAge: 60 * 1000 * 10 * 12, // 10 * 12 minutes,
+    maxAge: 60 * 1000 * 60 * 2, // 2 hours,
     keys: ['randomkey']
   }))
 
@@ -26,15 +27,12 @@ export default function createApp({ db }) {
   );
   app.use((req, res, next) => {
     req.base = `${req.protocol}://${req.get('host')}`;
-    // req.logger = logger;
     req.db = db;
-    req.context = {};
 
-    console.log(req.originalUrl)
     return next();
   });
   app.use(routes);
-  // app.use(errorHandler);
+  app.use(errorHandler);
 
   return app;
 }

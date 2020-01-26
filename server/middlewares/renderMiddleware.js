@@ -33,7 +33,6 @@ function render(req, res) {
   const jsx = ReactDOMServer.renderToString(Application);
 
   if (routerContext.url) {
-    console.log('REDIRECT TO', routerContext.url);
     return res.redirect(301, routerContext.url);
   }
 

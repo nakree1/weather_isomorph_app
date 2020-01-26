@@ -8,7 +8,6 @@ const createDB = require('../models').default;
 const createApp = require('../server').default;
 const initCron = require('../jobs').default;
 
-
 function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;

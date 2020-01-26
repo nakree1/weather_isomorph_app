@@ -33,9 +33,10 @@
     "build-client": "react-scripts build",
     "eject-client": "react-scripts eject",
 
-    "start-server": "nodemon --config nodemon.config.json --exec babel-node ./server/bin/www",
-    "start-server-debug": "nodemon --config nodemon.config.json --exec babel-node --inspect=0.0.0.0 ./server/bin/www ",
-    "start": "react-scripts build && nodemon --config nodemon.config.prod.json --exec babel-node ./server/bin/www",
+    "start-server": "nodemon --config nodemon.config.json ./server/bin/www",
+    "start-server-debug": "nodemon --config nodemon.config.json --inspect=0.0.0.0 ./server/bin/www ",
+    "start": "react-scripts build && nodemon --config nodemon.config.prod.json ./server/bin/www",
+
     "prettier": "prettier --write src/**/*.{jsx,js,json,css,scss} server/**/*.js"
   },
   "eslintConfig": {

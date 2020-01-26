@@ -20,7 +20,6 @@ export default async function createDB() {
 
     return db;
   } catch (e) {
-    console.error(e);
-    console.error('MongoDB connection failed');
+    console.error('MongoDB connection failed', e);
   }
 }

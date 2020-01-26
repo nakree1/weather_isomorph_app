@@ -2,7 +2,7 @@ import { createApiService } from '../../src/config/api';
 
 export default function axiosConfigMiddleware(req, res, next) {
   const backend = createApiService({
-    baseURL: 'http://localhost:3010/',
+    baseURL: req.base,
     timeout: 15000,
     withCredentials: true,
     headers: {
