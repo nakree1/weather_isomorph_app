@@ -11,8 +11,6 @@ function hydrateStore() {
   if (window.__PRELOADED_STATE__) {
     const decodedState = decodeURIComponent(window.__PRELOADED_STATE__);
 
-    console.log(JSON.parse(decodedState));
-
     return JSON.parse(decodedState);
   }
 

@@ -28,14 +28,13 @@ function render(req, res) {
   );
 
   const updatedState = res.store.getState();
-  console.log('state', updatedState);
   const jsonState = encodeURIComponent(JSON.stringify(updatedState));
 
   const jsx = ReactDOMServer.renderToString(Application);
 
   if (routerContext.url) {
-    console.log('REDIRECT');
-    res.redirect(301, routerContext.url);
+    console.log('REDIRECT TO', routerContext.url);
+    return res.redirect(301, routerContext.url);
   }
 
   const hydratedHtml = html

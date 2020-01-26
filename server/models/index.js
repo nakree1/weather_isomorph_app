@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import seeder from '../seeder';
 import { DB_NAME, DB_HOSTNAME, DB_PASSWORD, DB_PORT, DB_USERNAME } from '../config';
 
 const dbUrl = `mongodb://${DB_HOSTNAME}:${DB_PORT}`;
@@ -13,8 +14,10 @@ const config = {
 
 export default async function createDB() {
   try {
-    console.log(dbUrl, config);
     const db = await mongoose.connect(dbUrl, config);
+
+    await seeder();
+
     return db;
   } catch (e) {
     console.error(e);

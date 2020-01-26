@@ -15,7 +15,6 @@ export default async (req, res) => {
       res.render();
     })
     .catch(err => {
-      console.error('catch', err);
       res.status(500).end(err);
     })
 }

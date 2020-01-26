@@ -31,7 +31,6 @@ export default function createApp({ db }) {
     req.context = {};
 
     console.log(req.originalUrl)
-    console.log(req.user);
     return next();
   });
   app.use(routes);
