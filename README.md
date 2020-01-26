@@ -1,5 +1,25 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## How to deploy
+
+##### Using docker:
+1. Clone repo
+2. Open the project directory in the terminal
+3. Copy .env file to project directory or create using .env.example
+4. Run `sudo docker-compose up -d`
+5. Wait for application building (2-3min)
+6. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+##### Without docker:
+1. Clone repo
+2. Open the project directory in the terminal
+3. Copy .env file to the project directory or create one using .env.example
+4. Start your MongoDB (with user credentials from .env)
+5. Run `npm run install && npm run start`
+5. Wait for application building (2-3min)
+6. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -8,7 +28,7 @@ In the project directory, you can run:
 
 Builds the client-app for production to the `build` folder.
 After that runs the app in the production mode with the backend server and SSR.<br />
-Open [http://localhost:3010](http://localhost:3010) to view it in the browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `npm start-server`
 
